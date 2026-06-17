@@ -866,11 +866,11 @@ SELECT * FROM INFINITE_CHALLENGE;
   
 #### 4) 비율 함수
 - NTILE 제외, SQL Server(MSSQL)에서 지원 X
-<BR>
 - `RATIO_TO_REPORT`: 파티션 별 합계에서 차지하는 비율
 - `PERCENT_RANK`: 현재 행이 위치하는 백분위 순위 값 ( 맨 위는 0, 맨 끝은 1)
   - ex) 과목별로 나눈 파티션에서 해당 SCORE가 차지하는 백분위 순위 구하기
-    ```SQL
+
+    ```sql
     SELECT STUDENT_NAME, SUBJECT, SCORE,
            RANK() OVER (PARTITION BY SUBJECT ORDER BY SCORE) AS RANK,
            COUNT(*) OVER (PARTITION BY SUBJECT) AS COUNT,
